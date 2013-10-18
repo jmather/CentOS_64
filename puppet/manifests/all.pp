@@ -14,8 +14,8 @@ class phpdevweb {
 	include server::iptables
 	include server::phpdev
 	include server::httpd
-    include stdlib
-    include mongodb
+    include puppetlabs-stdlib::stdlib
+    include puppetlabs-mongodb::mongodb
 	#include phpmyadmin
 
 #	file { "/tmp/facts.yaml":
