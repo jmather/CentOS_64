@@ -1,6 +1,6 @@
 ##VAGRANT + PUPPET = ![https://www.centos.org/themes/centos/images/centos_logo_45.png](https://www.centos.org/themes/centos/images/centos_logo_45.png) 6.4
 ---
-####Apache 2.4+
+####Apache 2.2+
 - setup vhost
 - Replace www.example.conf
 	[root@www vhosts]# rm www.example.com.conf
