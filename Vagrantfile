@@ -108,6 +108,7 @@ Vagrant.configure("2") do |config|
       # Create a private network, which allows host-only access to the machine
       # using a specific IP.
       node.vm.network :private_network, ip: options[:ipaddress]
+      # node.vm.hostname = "#{options[:hostname]}.example.com"
       node.vm.hostname = "#{options[:hostname]}.local"
 
       node.vm.provider "virtualbox" do |v|
