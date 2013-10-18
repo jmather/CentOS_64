@@ -1,7 +1,7 @@
 name: CentOS64
 base_path: ./projects
 log_path: ./logs #~/Library/Logs/Vagrant will show up in console on mac!
-web_root: web
+web_root: ./projects/webroot
 php_version: 5.4 #5.4 is also usable. To change, you will need to rebuild the VM
 nfs_enabled: false # Only enable after the first run -- currently box doesn't ship w/ NFS
 server_mode: single_server # or web_and_db
