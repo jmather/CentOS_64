@@ -40,7 +40,7 @@ server_mode      = vagrant_config['server_mode']
 enable_yum_update= vagrant_config['enable_yum_update']
 enable_nfs       = vagrant_config['nfs_enabled']
 
-guest_source_root = '/vagrant'
+guest_source_root = '/source'
 guest_log_root    = '/mnt/logs'
 
 paths = {

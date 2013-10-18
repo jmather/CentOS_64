@@ -51,6 +51,11 @@ class server::php54 {
     ensure  => present,
   }
 
+  #pcntl
+  package { "php54-process":
+    ensure  => present,
+  }
+
   package { "php54-pear":
     ensure  => present,
   }
