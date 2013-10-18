@@ -31,6 +31,16 @@ class server::httpd {
     enable    => true
   }
 
+  file { "/etc/httpd/vhosts/www.example.com.conf":
+    ensure  => absent,
+  }
+
+  file { "/etc/httpd/vhosts/phpdev.local.conf":
+    replace => true,
+    ensure  => present,
+    source  => "puppet:///modules/server/httpd/vhosts/phpdev.local.conf",
+  }
+
   file { "/etc/httpd/conf.d/vhost.conf":
     replace => true,
     ensure  => present,
