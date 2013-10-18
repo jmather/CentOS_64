@@ -1,4 +1,4 @@
-name: CentOS64
+name: phpdev
 base_path: ./projects
 log_path: ./logs #~/Library/Logs/Vagrant will show up in console on mac!
 web_root: web
