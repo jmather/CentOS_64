@@ -22,10 +22,6 @@ class server::php (
     include server::php53
   }
 
-  package { "uuid-php":
-    ensure  => present,
-    require => [Package["$php_version_name-devel"]]
-  }
 
   exec { "xhprof":
     command => "/usr/bin/pecl install xhprof-beta",
