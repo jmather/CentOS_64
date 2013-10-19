@@ -68,7 +68,7 @@ class server::php54 {
     ensure  => present,
   }
 
-  package { "php54-pecl-memcached":
+  package { "php54-pecl-memcache":
     ensure  => present,
   }
 

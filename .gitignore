@@ -1,2 +1,2 @@
-logs/all/httpd/error_log
-logs/all/httpd/access_log
+logs/
+.vagrant/
