@@ -84,4 +84,6 @@ class server::php54 {
   class server::php54::uninstall {
      package{ ['php', 'php53u']: ensure => absent }
   }
+
+  exec { 'install gearman': command => '/usr/bin/pecl install gearman' }
 }

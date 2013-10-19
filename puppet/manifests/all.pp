@@ -29,20 +29,9 @@ class phpdevweb {
         ip_addresses => $ip_addresses,
     }
 
-    exec { 'install memcached': command => '/usr/bin/pecl install memcached' }
-    exec { 'install gearman': command => '/usr/bin/pecl install gearman' }
-    exec { 'install redis': command => '/usr/bin/pecl install redis' }
-
 }
 
 include phpdevweb
-
-package { 'memcached': ensure => present }
-service {
-        'memcached':
-            name       => memcached,
-            enable     => true,
-    }
 
 package { 'gearmand': ensure => present }
 service {
@@ -50,11 +39,8 @@ service {
             name       => gearmand,
             enable     => true,
     }
-
-package { 'redis': ensure => present }
-service {
-        'redis-server':
-            name       => redis-server,
-            enable     => true,
-    }
-
+exec { "gearmand start":
+    command => "gearmand -d",
+    path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
+    #refreshonly => true,
+}
