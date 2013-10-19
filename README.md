@@ -25,6 +25,12 @@
 
 		Error: /Stage[main]/Gearman/Package[gearman]/ensure: change from absent to latest failed: Could not update: Execution of '/usr/bin/yum -d 0 -e 0 -y install gearman' returned 1: Error: Nothing to do
 
+---
+
+		Error: Puppet::Parser::AST::Resource failed with error ArgumentError: Could not find declared class mongodb at /tmp/vagrant-puppet/manifests/all.pp:53 on node www.local
+		Error: Puppet::Parser::AST::Resource failed with error ArgumentError: Could not find declared class mongodb at /tmp/vagrant-puppet/manifests/all.pp:53 on node www.local
+
+
 <!-- None! All working!! -->
 
 #Known Errors:
