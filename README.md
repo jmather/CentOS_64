@@ -19,7 +19,13 @@
 
 #Issues:
 
-None! All working!!
+		Error: Could not update: Execution of '/usr/bin/yum -d 0 -e 0 -y install gearman' returned 1: Error: Nothing to do
+
+---
+
+		Error: /Stage[main]/Gearman/Package[gearman]/ensure: change from absent to latest failed: Could not update: Execution of '/usr/bin/yum -d 0 -e 0 -y install gearman' returned 1: Error: Nothing to do
+
+<!-- None! All working!! -->
 
 #Known Errors:
 These errors are benign

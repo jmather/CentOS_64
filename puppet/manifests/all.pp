@@ -64,5 +64,3 @@ class gearman {
     # }
 }
 include gearman
-include composer
-
