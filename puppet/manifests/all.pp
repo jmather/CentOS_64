@@ -48,19 +48,24 @@ class redis {
 }
 include redis
 
-class gearman {
-    package { "gearman":
-        ensure => 'latest',
-        require => Yumrepo['remi'],
-    }
-    service { "gearmand":
-        enable => true,
-        ensure => running,
-    }
-    # exec { "main":
-    #     command => "gearmand -d",
-    #     path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
-    #     require => Package["gearman"]
-    # }
+class { 'mongodb' :
+    init => 'upstart',
 }
-include gearman
+include mongodb
+
+# class gearman {
+#     package { "gearman":
+#         ensure => 'latest',
+#         require => Yumrepo['remi'],
+#     }
+#     service { "gearmand":
+#         enable => true,
+#         ensure => running,
+#     }
+#     # exec { "main":
+#     #     command => "gearmand -d",
+#     #     path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
+#     #     require => Package["gearman"]
+#     # }
+# }
+# include gearman
