@@ -1,6 +1,7 @@
 # Puppet manifest for my PHP dev machine
 Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
 
+class { 'epel': }
 include remi
 
 class phpdevweb {
