@@ -57,10 +57,12 @@ class gearman {
         enable => true,
         ensure => running,
     }
-    exec { "main":
-        command => "gearmand -d",
-        path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
-        require => Package["gearman"]
-    }
+    # exec { "main":
+    #     command => "gearmand -d",
+    #     path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
+    #     require => Package["gearman"]
+    # }
 }
 include gearman
+include composer
+

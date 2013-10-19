@@ -1,0 +1,42 @@
+{
+  "name": "brainsware-composer",
+  "version": "0.2.1",
+  "source": "https://github.com/Brainsware.org/puppet-composer",
+  "author": "brainsware",
+  "license": "Apache License, Version 2.0",
+  "summary": "manage PHP composer installation as well as installation and update of projects using composer",
+  "description": "UNKNOWN",
+  "project_page": "https://github.com/Brainsware.org/puppet-composer",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.1.0"
+    },
+    {
+      "name": "maestrodev/wget",
+      "version_requirement": ">= 1.2.2"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "Gemfile": "cc6e3e3500f43534e4f28d725b52323b",
+    "Gemfile.lock": "05e1b4722b4ea2f842d888d52c34b279",
+    "LICENSE": "b1e01b26bacfc2232046c90a330332b3",
+    "Modulefile": "47fc997348454f6c5a39f462263ed8b6",
+    "README.md": "c5e60b85836db2b031266f9580996188",
+    "Rakefile": "a5b12bfbee9fd6cf58c433bcfdc3d75d",
+    "manifests/init.pp": "245c4c21394aea0c25cf703f9311d3d2",
+    "manifests/install/package.pp": "878799517ef3f5479415171655822b5d",
+    "manifests/install/wget.pp": "1cdae1bde0621b2517058b0142691be1",
+    "manifests/params.pp": "bc7dd72124feaadb125819bd647f9a6b",
+    "manifests/project.pp": "f7bb83b81ba2d339428256f967209715",
+    "spec/classes/composer_spec.rb": "91a33b92a7102f4148363f01a1a6539d",
+    "spec/defines/project_spec.rb": "1fec5f69ee86fc1a5a94a977484a634f",
+    "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc",
+    "spec/spec_helper_system.rb": "7744cd0f4dc0909f04746b8a9e788aa8",
+    "spec/system/class_spec.rb": "a546770eb2f3a53f823df4e783ca639b",
+    "tests/init.pp": "f21bd9da2126079c4a9401b4e5c355ec"
+  }
+}
