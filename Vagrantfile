@@ -138,9 +138,19 @@ Vagrant.configure("2") do |config|
           node.vm.synced_folder "#{paths[:host_log_path]}/#{name}", paths[:guest_log_path], :create => true, :nfs => true
         end
       else
-        node.vm.synced_folder paths[:host_source_path], paths[:guest_source_path], :extra => 'dmode=777,fmode=777'
+        vagrant_version_bits = Vagrant::VERSION.to_s.split('.')
+        vagrant_version = "#{vagrant_version_bits[0]}.#{vagrant_version_bits[1]}".to_f
+        if vagrant_version < 1.3
+          node.vm.synced_folder paths[:host_source_path], paths[:guest_source_path], :extra => 'dmode=777,fmode=777'
+        else
+          node.vm.synced_folder paths[:host_source_path], paths[:guest_source_path], :mount_options => ['dmode=777','fmode=777']
+        end
         if host_log_root != 'undef'
-          node.vm.synced_folder "#{paths[:host_log_path]}/#{name}", paths[:guest_log_path], :create => true, :extra => 'dmode=777,fmode=777'
+          if vagrant_version < 1.3
+            node.vm.synced_folder "#{paths[:host_log_path]}/#{name}", paths[:guest_log_path], :create => true, :extra => 'dmode=777,fmode=777'
+          else
+            node.vm.synced_folder "#{paths[:host_log_path]}/#{name}", paths[:guest_log_path], :create => true, :mount_options => ['dmode=777','fmode=777']
+          end
         end
       end
 
