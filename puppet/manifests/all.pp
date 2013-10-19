@@ -28,8 +28,17 @@ class phpdevweb {
     class { server::db:
         ip_addresses => $ip_addresses,
     }
+
+    exec { 'install memcached': command => '/usr/bin/pecl install memcached' }
+
 }
 
-
-
 include phpdevweb
+
+
+package { 'memcached': ensure => present }
+service {
+        'memcached':
+            name       => memcached,
+            enable     => true,
+    }
