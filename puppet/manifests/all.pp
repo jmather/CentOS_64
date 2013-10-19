@@ -1,6 +1,8 @@
 # Puppet manifest for my PHP dev machine
 Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
 
+include remi
+
 class phpdevweb {
     if ($enable_nfs) {
         require server::nfs
@@ -33,14 +35,31 @@ class phpdevweb {
 
 include phpdevweb
 
-package { 'gearmand': ensure => present }
-service {
-        'gearmand':
-            name       => gearmand,
-            enable     => true,
+class redis {
+    package { "redis":
+        ensure => 'latest',
+        require => Yumrepo['remi'],
     }
-exec { "gearmand start":
-    command => "gearmand -d",
-    path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
-    #refreshonly => true,
+    service { "redis":
+        enable => true,
+        ensure => running,
+    }
 }
+include redis
+
+class gearman {
+    package { "gearman":
+        ensure => 'latest',
+        require => Yumrepo['remi'],
+    }
+    service { "gearmand":
+        enable => true,
+        ensure => running,
+    }
+    exec { "main":
+        command => "gearmand -d",
+        path => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
+        require => Package["gearman"]
+    }
+}
+include gearman
